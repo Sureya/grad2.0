@@ -4,7 +4,7 @@ from pymongo import MongoClient
 client = MongoClient()
 client = MongoClient('localhost', 27017)
 
-def insert():
+def readData():
   input_json = """
 {
     "Wall": [
@@ -49,19 +49,21 @@ def insert():
 
   return input_json
 
+
+
+def insertDocument(tableName,json_data):
+
+    post = db[tableName]
+    post.insert_one(json_data)
+    print tableName+" updated."
+    return True
+
 if __name__ =="__main__":
 
     con = MongoClient()
+    db = client['grad']
 
-    db = client['sampledb']
-    post = db["post"]
+    if insertDocument("wall_data",json.loads(readData()))
 
-    wall = json.loads(insert())
-    post.insert_one(wall) 
-
-    print "insert sucessful"
-
-    recepients = db.post.distinct("Wall.wall_recepients")
-    # print(recepients)
-
+    
     
