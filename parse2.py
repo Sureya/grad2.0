@@ -16,7 +16,7 @@ def insert():
             "posted_on": "24/8/15",
             "author_id": "A004",
             "path_to_files": "[home/path]",
-            "wall_recepients": "[user001,user002]",
+            "wall_recepients":"[user002,user003,user004,user005]",
             "time_stamp": "878433774394",
             "Comments": [
                 {
@@ -54,9 +54,14 @@ if __name__ =="__main__":
     con = MongoClient()
 
     db = client['sampledb']
-    posts = db["posts"]
+    post = db["post"]
 
     wall = json.loads(insert())
-    posts.insert_one(wall) 
+    post.insert_one(wall) 
 
     print "insert sucessful"
+
+    recepients = db.post.distinct("Wall.wall_recepients")
+    # print(recepients)
+
+    
