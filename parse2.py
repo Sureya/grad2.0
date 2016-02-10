@@ -17,7 +17,7 @@ def insert():
             "author_id": "A001",
             "path_to_files": "[home/path]",
             "wall_recepients":"[user001,user002,user003,user004,user005]",
-            "time_stamp": "561651561552",
+            "w_timestamp": "561651561552",
             "Comments": [
                 {
                     "comment_id": "cmt001",
@@ -27,7 +27,7 @@ def insert():
                     "comment": "try 2",
                     "profile_pic": "home2/pic.jpg",
                     "user_name": "user2",
-                    "timestamp": "8975616544515",
+                    "c_timestamp": "8975616544515",
                     "comment_reply": [
                         {
                             "reply_id": "rly001",
@@ -37,7 +37,7 @@ def insert():
                             "reply": "try 4",
                             "profile_pic": "home2/pic.jpg",
                             "user_name": "user",
-                            "timestamp": "91877798442158"
+                            "r_timestamp": "91877798442158"
                         }
                     ]
                 },
@@ -49,7 +49,7 @@ def insert():
                     "comment": "try 2",
                     "profile_pic": "home2/pic.jpg",
                     "user_name": "user2",
-                    "timestamp": "6484798454984",
+                    "c_timestamp": "6484798454984",
                     "comment_reply": [
                         {
                             "reply_id": "rly002",
@@ -59,7 +59,7 @@ def insert():
                             "reply": "try 4",
                             "profile_pic": "home2/pic.jpg",
                             "user_name": "user",
-                            "timestamp": "198782789445"
+                            "r_timestamp": "198782789445"
                         }
                     ]
                 }
@@ -74,7 +74,7 @@ def insert():
             "author_id": "A002",
             "path_to_files": "[home/path]",
             "wall_recepients":"[user002,user003,user004,user005,user006]",
-            "time_stamp": "984298429842",
+            "w_timestamp": "984298429842",
             "Comments": [
                 {
                     "comment_id": "cmt001",
@@ -84,7 +84,7 @@ def insert():
                     "comment": "try 2",
                     "profile_pic": "home2/pic.jpg",
                     "user_name": "user2",
-                    "timestamp": "548494511685",
+                    "c_timestamp": "548494511685",
                     "comment_reply": [
                         {
                             "reply_id": "rly001",
@@ -94,7 +94,7 @@ def insert():
                             "reply": "try 4",
                             "profile_pic": "home2/pic.jpg",
                             "user_name": "user",
-                            "timestamp": "695498414+9844"
+                            "r_timestamp": "695498414+9844"
                         }
                     ]
                 }
@@ -109,7 +109,7 @@ def insert():
             "author_id": "A003",
             "path_to_files": "[home/path]",
             "wall_recepients":"[user003,user004,user005,user006,user007]",
-            "time_stamp": "6549845498484"         
+            "w_timestamp": "6549845498484"         
         }    
     ]
 }
@@ -132,6 +132,8 @@ if __name__ =="__main__":
     recepients = db.post.distinct("Wall.wall_recepients")
     print(recepients)
 
-    
+    wall_time = db.post.find().sort("w_timestamp",pymongo.DECENDING)
+    print(wall_time)
+
 
 
